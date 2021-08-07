@@ -8,7 +8,7 @@ use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
-use app\models\ContactForm;
+use app\models\PointSearch;
 
 class SiteController extends Controller
 {
@@ -64,8 +64,19 @@ class SiteController extends Controller
         if (Yii::$app->user->isGuest) {
             return $this->redirect(['login']);
         }
-        
-        return $this->render('index');
+
+        $productQueryParams = [];
+        if (Yii::$app->request->queryParams) {
+            $productQueryParams = Yii::$app->request->queryParams;
+        }
+
+        $searchModel = new PointSearch();
+        $dataProvider = $searchModel->search($productQueryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
     /**
