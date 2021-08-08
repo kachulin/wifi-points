@@ -71,7 +71,7 @@ class PointSearch extends Point
 
         $query->andFilterWhere(['like', 'language.name', $this->languageName]);
 
-        $query->andFilterWhere(['like', 'city.name', '%' . $this->cityName, false]);
+        $query->andFilterWhere(['like', 'city.name',  '%' . $this->cityName . '%', false]);
 
         $query->andFilterWhere(['like', 'macAddress', '%' . $this->macAddress . '%', false]);
 

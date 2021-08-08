@@ -12,6 +12,8 @@ use yii\db\ActiveRecord;
  *
  * @property int $pointId
  * @property string $macAddress
+ * @property int $languageId
+ * @property int $cityId
  * 
  */
 class Point extends ActiveRecord
@@ -30,8 +32,8 @@ class Point extends ActiveRecord
     public function rules()
     {
         return [
-            [['pointId'], 'integer'],
-            [['macAddress'], 'string', 'max' => 12],
+            [['pointId', 'languageId', 'cityId'], 'integer'],
+            [['macAddress'], 'string', 'max' => 17],
         ];
     }
 
@@ -43,6 +45,8 @@ class Point extends ActiveRecord
         return [
             'pointId' => 'ID',
             'macAddress' => 'MAC-адрес',
+            'languageId' => 'ID языка',
+            'cityId' => 'ID города',
         ];
     }
 
