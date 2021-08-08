@@ -10,31 +10,31 @@ Git 2.25.1
 
 Инструкция по установке:
 
-Копируем репозиторий view
+####Копируем репозиторий view
 
-git clone https://github.com/kachulin/wifi-points.git wifi-points
+`$ git clone https://github.com/kachulin/wifi-points.git wifi-points`
 
-Заходим в папку проекта
+####Заходим в папку проекта
 
-cd wifi-points
+`$ cd wifi-points`
 
-Устанавливаем зависимости
+####Устанавливаем зависимости
 
-composer install
+`$ composer install`
 
-Конфигурируем настройки базы данных в файле
+####Конфигурируем настройки базы данных в файле
 
-/config/db.php
+`/config/db.php`
 
-Применяем миграции
+####Применяем миграции
 
-php yii migrate
+`$ php yii migrate`
 
-Запускаем веб-сервер
+####Запускаем веб-сервер
 
-php yii serve --port=8880
+`$ php yii serve --port=8880`
 
-Открываем страницу в браузере
+####Открываем страницу в браузере
 
 http://localhost:8880/
 
