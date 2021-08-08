@@ -12,10 +12,21 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'modules' => [
+        'v1' => [
+            'class' => app\api\modules\v1\Module::class,
+            'controllerMap' => [
+                'points' => app\api\modules\v1\controllers\PointController::class,
+            ],
+        ]
+    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '70qsEwQgiMziC_H1G6iTDuA6dlZjcbBR',
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ],
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -48,6 +59,20 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'pluralize' => false,
+                    'controller' => 'v1/points',
+                    'prefix' => 'api',
+                    'extraPatterns' => [
+                        'GET {key}' => 'view',
+                        'GET {key}/language' => 'language',
+                        'GET {key}/city' => 'city',
+                    ],
+                     'tokens' => [
+                        '{key}' => '<key:\\w[\\w,]+(-\\w+)*>',
+                    ],
+                ],
                 'login' => 'site/login',
             ],
         ],
