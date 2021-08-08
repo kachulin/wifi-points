@@ -10,7 +10,7 @@ Git 2.25.1
 
 Инструкция по установке:
 
-####Копируем репозиторий view
+####Копируем репозиторий
 
 `$ git clone https://github.com/kachulin/wifi-points.git wifi-points`
 
