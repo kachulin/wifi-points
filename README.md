@@ -34,10 +34,10 @@ http://localhost:8880/
 
 Примеры запросов к api:
 
-http://localhost:8880/api/v1/points/22-00-00-00-00-A2
+GET http://localhost:8880/api/v1/points/22-00-00-00-00-A2
 
-http://localhost:8880/api/v1/points/22-00-00-00-00-A2/language
+GET http://localhost:8880/api/v1/points/22-00-00-00-00-A2/language
 
-http://localhost:8880/api/v1/points/22-00-00-00-00-A2/city
+GET http://localhost:8880/api/v1/points/22-00-00-00-00-A2/city
 
 где '22-00-00-00-00-A2' - предполагаемый идентификатор wifi-точки доступа
